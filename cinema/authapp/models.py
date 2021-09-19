@@ -10,6 +10,7 @@ class UserProfile(AbstractUser):
         (GENDER_MALE, _('male')),
         (GENDER_FEMALE, _('female')),
     )
+
     date_birth = models.DateField(_('birth date'), null=True)
     gender = models.CharField(_('gender'), max_length=1,
-                              blank=True)
+                              choices=GENDER_CHOICES, blank=True)
