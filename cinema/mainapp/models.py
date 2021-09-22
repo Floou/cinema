@@ -5,7 +5,7 @@ from authapp.models import UserProfile
 class Film(models.Model):
     title = models.CharField(max_length=128, unique=True)
     description = models.TextField()
-    # image = models.ImageField(upload_to='images/')
+    # image = models.ImageField(upload_to='')
     audience = models.ManyToManyField('authapp.UserProfile', related_name='audience')
 
     def __str__(self):
