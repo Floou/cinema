@@ -1,21 +1,40 @@
 import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import FilmsList from "./components/Film";
+
+
+const filmsMock = [
+    {'title': "Плохие парни навсегда", 'description' : "Детективы Майк Лоури и" +
+            "Маркус Бёрнетт снова в деле!"}
+];
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.setState({
-      'dev': [],
-      'films': [],
-      'schedule': []
-    })
+    this.state = {
+      // 'films': [],
+      films: filmsMock,
+      schedule: []
+    };
   }
+
+      componentDidMount() {
+        // call rest API
+        this.setState({
+            projects: filmsMock
+        })
+    }
 
   render() {
     console.log('state', this.state);
     return(
         <div>
-          Cinema
+          <Header />
+          Films
+          <FilmsList films={this.state.films}/>
+          <Footer />
         </div>
     )
   }
@@ -23,28 +42,3 @@ class App extends React.Component {
 }
 
 export default App;
-// import logo from './logo.svg';
-// import './App.css';
-//
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Project
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-//
-// export default App;
