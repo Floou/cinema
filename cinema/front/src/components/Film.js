@@ -23,7 +23,7 @@ const FilmList = (props) => {
             </tr>
             </thead>
             <tbody>
-            {[].map(Film)}
+            {props.films.map(Film)}
             </tbody>
         </table>
     )

@@ -15,15 +15,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       // 'films': [],
-      films: filmsMock,
+      films: [],
       schedule: []
     };
   }
 
       componentDidMount() {
-        // call rest API
         this.setState({
-            projects: filmsMock
+            films: filmsMock
         })
     }
 
