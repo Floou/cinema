@@ -5,8 +5,11 @@ import FilmsList from "./components/Film";
 
 
 const filmsMock = [
-    {'title': "Плохие парни навсегда", 'description' : "Детективы Майк Лоури и" +
-            "Маркус Бёрнетт снова в деле!"}
+    {'title': "Плохие парни навсегда",
+        'description' : "Детективы Майк Лоури и" +
+            "Маркус Бёрнетт снова в деле!"},
+    {'title': "Путешествие 2: Таинственный остров",
+        'description' : "Американский приключенческий боевик режиссёра Брэда Пейтона."}
 ];
 
 
@@ -14,7 +17,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // 'films': [],
       films: [],
       schedule: []
     };

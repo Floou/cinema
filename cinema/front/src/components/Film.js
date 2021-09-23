@@ -1,4 +1,4 @@
-const Film = (film) => {
+const Film = ({film}) => {
     console.log('film', film);
     return (
         <tr className="film-row">
@@ -12,8 +12,8 @@ const Film = (film) => {
     )
 }
 
-const FilmList = (props) => {
-    console.log('props', props);
+const FilmList = ({films}) => {
+    console.log('films', films);
     return (
         <table className={"film-list"}>
             <thead>
@@ -23,7 +23,7 @@ const FilmList = (props) => {
             </tr>
             </thead>
             <tbody>
-            {props.films.map(Film)}
+            {films.map((film) => <Film key={film.title} film={film}/>)}
             </tbody>
         </table>
     )
