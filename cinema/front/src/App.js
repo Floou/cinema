@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FilmsList from "./components/Film";
 import UserList from "./components/User";
+import ScheduleList from "./components/Schedule";
 
 
 
@@ -70,7 +71,7 @@ const ScheduleMock = [{
     "date_time": "2021-12-11T18:30:00Z",
     "film": 4
   }
-]
+];
 
 const filmsMock = [
     {
@@ -127,7 +128,7 @@ class App extends React.Component {
     this.state = {
         users: [],
         films: [],
-        schedule: []
+        schedules: []
     };
   }
 
@@ -135,7 +136,7 @@ class App extends React.Component {
         this.setState({
             users: UsersMock,
             films: filmsMock,
-            schedule: ScheduleMock
+            schedules: ScheduleMock
         })
     }
 
@@ -147,6 +148,7 @@ class App extends React.Component {
           Films
           <UserList users={this.state.users}/>
           <FilmsList films={this.state.films}/>
+          <ScheduleList schedules={this.state.schedules}/>
           <Footer />
         </div>
     )
