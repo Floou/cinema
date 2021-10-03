@@ -3,6 +3,9 @@ const Film = ({film}) => {
     return (
         <tr className="film-row">
             <td>
+                {film.id}
+            </td>
+            <td>
                 {film.title}
             </td>
             <td>
@@ -18,12 +21,13 @@ const FilmList = ({films}) => {
         <table className={"film-list"}>
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Description</th>
+                <th>id</th>
+                <th>title</th>
+                <th>description</th>
             </tr>
             </thead>
             <tbody>
-            {films.map((film) => <Film key={film.title} film={film}/>)}
+            {films.map((film) => <Film key={film.id} film={film}/>)}
             </tbody>
         </table>
     )

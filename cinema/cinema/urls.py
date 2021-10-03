@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
+import authapp.views as authapp
 import mainapp.views as mainapp
-from mainapp.views import FilmViewSet
+
 
 router = DefaultRouter()
-router.register('projects', FilmViewSet)
+router.register('users', authapp.UserViewSet)
+router.register('films', mainapp.FilmViewSet)
+router.register('schedule', mainapp.ScheduleViewSet)
 
 
 urlpatterns = [
