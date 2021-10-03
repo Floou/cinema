@@ -1,9 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
+import {BrowserRouter as Router, NavLink as Link, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FilmsList from "./components/Film";
 import UserList from "./components/User";
 import ScheduleList from "./components/Schedule";
+import Main from "./components/Main";
 
 
 
@@ -73,7 +76,7 @@ const ScheduleMock = [{
   }
 ];
 
-const filmsMock = [
+const FilmsMock = [
     {
     "id": 1,
     "title": "Плохие парни навсегда",
@@ -135,22 +138,58 @@ class App extends React.Component {
       componentDidMount() {
         this.setState({
             users: UsersMock,
-            films: filmsMock,
+            films: FilmsMock,
             schedules: ScheduleMock
         })
     }
 
   render() {
-    console.log('state', this.state);
+    // console.log('state', this.state);
     return(
-        <div>
-          <Header />
-          Films
-          <UserList users={this.state.users}/>
-          <FilmsList films={this.state.films}/>
-          <ScheduleList schedules={this.state.schedules}/>
+        <div className="main">
+                <Router>
+                    <Header/>
+                    <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                        <Link to={"/"}
+                              className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark
+                              text-decoration-none">
+                            Film
+                    </Link>
+                        <ul className="nav nav-pills">
+                            <li className="nav-item">
+                        <Link to={"/users"} className="nav-link">
+                            Users
+                        </Link>
+                    </li>
+                            <li className="nav-item">
+                        <Link to={"/films"} className="nav-link">
+                            Film
+                        </Link>
+                     </li>
+                            <li className="nav-item">
+                        <Link to={"/schedules"} className="nav-link">
+                            Schedule
+                        </Link>
+                    </li>
+                        </ul>
+                    </header>
+
+               <Route exact path="/">
+                        <Main />
+               </Route>
+              <Route exact path="/users">
+                  <UserList users={this.state.users}/>
+              </Route>
+              <Route exact path="/films">
+                  <FilmsList films={this.state.films}/>
+              </Route>
+              <Route exact path="/schedules">
+                  <ScheduleList schedules={this.state.schedules}/>
+              </Route>
+          </Router>
           <Footer />
         </div>
+
     )
   }
 

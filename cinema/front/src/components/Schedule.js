@@ -1,5 +1,5 @@
 const Schedule = ({schedule}) => {
-    console.log('schedule', schedule);
+    // console.log('schedule', schedule);
     return (
         <tr className="schedule-row">
             <td>
@@ -16,20 +16,23 @@ const Schedule = ({schedule}) => {
 }
 
 const ScheduleList = ({schedules}) => {
-    console.log('schedules', schedules);
+    // console.log('schedules', schedules);
     return (
-        <table className={"schedule-list"}>
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>date_time</th>
-                <th>film</th>
-            </tr>
-            </thead>
-            <tbody>
-            {schedules.map((schedule) => <Schedule key={schedule.id} schedule={schedule}/>)}
-            </tbody>
-        </table>
+        <div className={"schedule-list"}>
+            <h1>Schedule</h1>
+            <table className={"schedule-list"}>
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>date_time</th>
+                    <th>film</th>
+                </tr>
+                </thead>
+                <tbody>
+                {schedules.map((schedule) => <Schedule key={schedule.id} schedule={schedule}/>)}
+                </tbody>
+            </table>
+        </div>
     )
 }
 
