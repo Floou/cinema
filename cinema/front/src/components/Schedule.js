@@ -19,7 +19,7 @@ const ScheduleList = ({schedules}) => {
     // console.log('schedules', schedules);
     return (
         <div className={"schedule-list"}>
-            <h1>Schedule</h1>
+            <h1>Schedules</h1>
             <table className={"schedule-list"}>
                 <thead>
                 <tr>
