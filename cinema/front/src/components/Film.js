@@ -1,3 +1,6 @@
+import {NavLink as Link} from "react-router-dom";
+import React from "react";
+
 const Film = ({film}) => {
     // console.log('film', film);
     return (
@@ -6,10 +9,17 @@ const Film = ({film}) => {
                 {film.id}
             </td>
             <td>
-                {film.title}
+                <Link to={`/films/detail${film.id}`} className="nav-link">
+                    {film.title}
+                </Link>
             </td>
             <td>
                 {film.description}
+            </td>
+            <td>
+                <Link to={`/films/delete${film.id}`} className="nav-link">
+                    delete
+                </Link>
             </td>
         </tr>
     )
@@ -26,6 +36,7 @@ const FilmList = ({films}) => {
                     <th>id</th>
                     <th>title</th>
                     <th>description</th>
+                    <th>actions</th>
                 </tr>
                 </thead>
                 <tbody>
