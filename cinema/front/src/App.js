@@ -1,11 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-import {BrowserRouter as Router, NavLink as Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import FilmsList from "./components/Film";
-import UserList from "./components/User";
-import ScheduleList from "./components/Schedule";
+import FilmList from "./components/FilmList";
+import FilmDetail from "./components/FilmDetail";
+import UserList from "./components/UserList";
+import ScheduleList from "./components/ScheduleList";
 import Main from "./components/Main";
 
 
@@ -156,7 +157,10 @@ class App extends React.Component {
                   <UserList users={this.state.users}/>
               </Route>
               <Route exact path="/films">
-                  <FilmsList films={this.state.films}/>
+                  <FilmList films={this.state.films}/>
+              </Route>
+              <Route exact path="/films/detail/:id">
+                  <FilmDetail films={this.state.films}/>
               </Route>
               <Route exact path="/schedules">
                   <ScheduleList schedules={this.state.schedules}/>

@@ -9,7 +9,7 @@ const Film = ({film}) => {
                 {film.id}
             </td>
             <td>
-                <Link to={`/films/detail${film.id}`} className="nav-link">
+                <Link to={`/films/detail/${film.id}`} className="nav-link">
                     {film.title}
                 </Link>
             </td>
@@ -17,7 +17,7 @@ const Film = ({film}) => {
                 {film.description}
             </td>
             <td>
-                <Link to={`/films/delete${film.id}`} className="nav-link">
+                <Link to={`/films/delete/${film.id}`} className="nav-link">
                     delete
                 </Link>
             </td>
