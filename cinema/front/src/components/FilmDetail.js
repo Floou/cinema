@@ -1,14 +1,23 @@
 import React from "react";
 import {useParams} from "react-router";
 
-const FilmDetail = ({films}) => {
+const FilmDetail = ({films,users}) => {
     let {id} = useParams();
-    // console.log('id:',id, typeof id, typeof parseInt(id), typeof +id);
     let film = films.filter((item) => item.id === +id)[0];
-    console.log('this film:', film);
+    let audience = users.filter((item) => film.audience.includes(item.id));
 
     return (
-        <h3>Film</h3>
+        <div className={"film-detail"}>
+            <h3>Film: {film.title}</h3>
+            <p>{film.description}</p>
+            <p>Audience:</p>
+            <ul>
+                {audience.map((item) => (
+                    <li key={item.id}>{item.username}</li>
+                ))}
+            </ul>
+        </div>
+
     )
 }
 

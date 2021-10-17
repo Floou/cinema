@@ -160,7 +160,8 @@ class App extends React.Component {
                   <FilmList films={this.state.films}/>
               </Route>
               <Route exact path="/films/detail/:id">
-                  <FilmDetail films={this.state.films}/>
+                  <FilmDetail films={this.state.films}
+                              users={this.state.users}/>
               </Route>
               <Route exact path="/schedules">
                   <ScheduleList schedules={this.state.schedules}/>
