@@ -8,6 +8,7 @@ import FilmDetail from "./components/FilmDetail";
 import UserList from "./components/UserList";
 import ScheduleList from "./components/ScheduleList";
 import Main from "./components/Main";
+import axios from "axios";
 
 
 
@@ -137,6 +138,14 @@ class App extends React.Component {
   }
 
       componentDidMount() {
+
+      axios
+            .get("http://localhost:8000/api/users/")
+            .then((result) => {
+                console.log('result', result)
+            })
+            .catch((error) => console.log(error));
+
         this.setState({
             users: UsersMock,
             films: FilmsMock,

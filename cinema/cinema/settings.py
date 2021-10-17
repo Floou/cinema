@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3th part apps
     'rest_framework',
+    'corsheaders',
     # own app
     'authapp',
     'mainapp',
