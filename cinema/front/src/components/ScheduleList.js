@@ -1,5 +1,4 @@
 const Schedule = ({schedule}) => {
-    // console.log('schedule', schedule);
     return (
         <tr className="schedule-row">
             <td>
@@ -16,7 +15,6 @@ const Schedule = ({schedule}) => {
 }
 
 const ScheduleList = ({schedules}) => {
-    // console.log('schedules', schedules);
     return (
         <div className={"schedule-list"}>
             <h1>Schedules</h1>
