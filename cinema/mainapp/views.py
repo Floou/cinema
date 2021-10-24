@@ -15,7 +15,7 @@ class ScheduleList(ListView):
 
 
 class FilmViewSet(ModelViewSet):
-    queryset = Film.objects.all()
+    queryset = Film.objects.filter(is_active=True)
     serializer_class = FilmSerializer
 
 

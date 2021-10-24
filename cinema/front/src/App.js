@@ -11,18 +11,18 @@ import Main from "./components/Main";
 import axios from "axios";
 
 
-const API_URL = "http://127.0.0.1:8000"
+const API_URL = "http://127.0.0.1:8000";
 const getResourceURL = (suffix) => `${API_URL}/api/${suffix}/`;
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        users: [],
-        films: [],
-        schedules: []
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            films: [],
+            schedules: []
+        };
+     }
 
       componentDidMount() {
 
