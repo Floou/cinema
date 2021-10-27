@@ -12,8 +12,22 @@ class Film(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    def restore(self):
+        self.is_active = True
+        self.title = self.title[1:]
+        films = self.schedule_set.all()
+        for film in films:
+            film.is_active = True
+            film.save()
+        self.save()
+        return self
+
     def delete(self, using=None, keep_parents=False):
         self.is_active = False
+        films = self.schedule_set.all()
+        for film in films:
+            film.is_active = False
+            film.save()
         self.title = f'_{self.title}'
         self.save()
         return 1, {}
@@ -31,12 +45,6 @@ class Schedule(models.Model):
     def __str__(self):
         return f'{self.film}: {self.date_time}'
 
-    # def delete(self, using=None, keep_parents=False):
-    #     self.is_active = False
-    #     self.film = f'_{self.film}'
-    #     self.save()
-    #     return 1, {}
-
     class Meta:
         verbose_name_plural = 'Расписание'
         verbose_name = 'Расписания'
@@ -45,4 +53,4 @@ class Schedule(models.Model):
 class Seat(models.Model):
     seat_no = models.IntegerField()
     screening = models.ForeignKey(Schedule, on_delete=models.CASCADE)
-    available = models.BooleanField()
+    is_active = models.BooleanField(default=True, db_index=True)
