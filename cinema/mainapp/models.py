@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, transaction, DatabaseError
 from authapp.models import UserProfile
 
 
@@ -15,21 +15,17 @@ class Film(models.Model):
     def restore(self):
         self.is_active = True
         self.title = self.title[1:]
-        films = self.schedule_set.all()
-        for film in films:
-            film.is_active = True
-            film.save()
+        self.schedule_set.all().update(is_active=True)
         self.save()
         return self
 
     def delete(self, using=None, keep_parents=False):
         self.is_active = False
-        films = self.schedule_set.all()
-        for film in films:
-            film.is_active = False
-            film.save()
-        self.title = f'_{self.title}'
-        self.save()
+        with transaction.atomic() as _:
+            self.schedule_set.all().update(is_active=False)
+            self.title = f'_{self.title}'
+            # raise DatabaseError
+            self.save()
         return 1, {}
 
     class Meta:
