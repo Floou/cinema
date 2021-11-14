@@ -31,6 +31,8 @@ urlpatterns = [
     path('',  mainapp.FilmList.as_view()),
     path('schedule/',  mainapp.ScheduleList.as_view()),
 
+    path('auth/login/', authapp.MyLogin.as_view(), name='login'),
+
     path('api/', include(router.urls)),
 
     path('admin/', admin.site.urls),
