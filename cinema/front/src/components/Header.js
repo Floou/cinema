@@ -11,6 +11,8 @@ function Header() {
                 <li className="nav-item"><Link to={"/users"} className="nav-link">User</Link></li>
                 <li className="nav-item"><Link to={"/films"} className="nav-link">Film</Link></li>
                 <li className="nav-item"><Link to={"/schedules"} className="nav-link">Schedule</Link></li>
+                <li className="nav-item"><Link to={"/login"} className="nav-link">Login</Link>
+                </li>
             </ul>
         </header>
     );

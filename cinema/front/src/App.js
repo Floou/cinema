@@ -9,6 +9,7 @@ import UserList from "./components/UserList";
 import ScheduleList from "./components/ScheduleList";
 import Main from "./components/Main";
 import axios from "axios";
+import LoginForm from "./components/LoginForm";
 
 
 const API_URL = "http://127.0.0.1:8000";
@@ -75,6 +76,9 @@ class App extends React.Component {
               </Route>
               <Route exact path="/schedules">
                   <ScheduleList schedules={this.state.schedules}/>
+              </Route>
+              <Route exact path="/login">
+                  <LoginForm />
               </Route>
           </Router>
           <Footer />
