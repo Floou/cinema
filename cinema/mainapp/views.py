@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
+from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
 from mainapp.models import Film, Schedule
@@ -15,6 +16,7 @@ class ScheduleList(ListView):
 
 
 class FilmViewSet(ModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Film.objects.filter(is_active=True)
     serializer_class = FilmSerializer
 
