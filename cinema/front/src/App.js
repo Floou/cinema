@@ -10,6 +10,7 @@ import ScheduleList from "./components/ScheduleList";
 import Main from "./components/Main";
 import axios from "axios";
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 
 const API_URL = "http://127.0.0.1:8000";
