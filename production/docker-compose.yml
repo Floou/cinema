@@ -13,7 +13,7 @@ services:
     depends_on:
       - db
     expose:
-      - 8080
+      - 8081
     command: bash -c "
       python manage.py makemigrations &&
       python manage.py migrate &&
