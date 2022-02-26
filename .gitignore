@@ -3,3 +3,4 @@
 /deploy/sources/_front/
 /deploy/
 /cinema/
+/db_docker_learn/.db.env
