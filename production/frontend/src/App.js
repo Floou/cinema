@@ -13,7 +13,7 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://127.0.0.1:8003";
 const getResourceURL = (suffix) => `${API_URL}/api/${suffix}/`;
 
 class App extends React.Component {

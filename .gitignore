@@ -1,3 +1,5 @@
 .idea
 /token
 /deploy/sources/_front/
+/deploy/
+/cinema/
