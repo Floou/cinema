@@ -1,25 +1,37 @@
 version: '3.2'
 
 services:
+  db:
+    image: postgres:13.1
+    privileged: true
+    env_file:
+      - .db.env
+
   backend:
     build:
-      context: .
+      context: ./backend
+    depends_on:
+      - db
     expose:
       - 8080
     command: bash -c "
       python manage.py makemigrations &&
       python manage.py migrate &&
-      gunicorn cinema.wsgi -b 0.0.0.0:8080
+      python manage.py create_users &&
+      python manage.py create_films &&
+      gunicorn cinema.wsgi -b 0.0.0.0:8081
       "
+
   nginx:
     build: ./nginx
     ports:
-      - 8000:80
+      - 8003:80
     depends_on:
       - backend
+
   frontend:
     build: ./frontend
     ports:
-      - 85:80
+      - 86:80
     depends_on:
       - nginx

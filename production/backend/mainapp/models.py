@@ -1,5 +1,4 @@
 from django.db import models, transaction, DatabaseError
-from authapp.models import UserProfile
 
 
 class Film(models.Model):

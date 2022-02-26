@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o6@om_j#8l8*=^a2vjhev$2m2$(c%hlm^jlz746$_6&hb)=#t3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,11 +84,20 @@ WSGI_APPLICATION = 'cinema.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cinema',
+        'USER': 'cinema',
+        'PASSWORD': 'admin000',
+        'HOST': 'db',
+        'POST': '5432',
     }
 }
 
+if DEBUG:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -137,8 +146,8 @@ AUTH_USER_MODEL = 'authapp.UserProfile'
 LOGIN_REDIRECT_URL = '/'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
+    'http://127.0.0.1:8003',
+    'http://localhost:8003',
 ]
 
 REST_FRAMEWORK = {
